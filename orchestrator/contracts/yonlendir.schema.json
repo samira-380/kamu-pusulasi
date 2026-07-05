@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "yonlendir - cikti sozlesmesi",
+  "type": "object",
+  "required": ["yonlendirme"],
+  "properties": {
+    "yonlendirme": {
+      "type": "object",
+      "required": ["birim", "gerekce", "guven"],
+      "properties": {
+        "birim": { "type": "string", "minLength": 1 },
+        "gerekce": { "type": "string", "minLength": 1 },
+        "guven": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    }
+  }
+}

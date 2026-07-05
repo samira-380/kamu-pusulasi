@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "mevzuat_eslestir - cikti sozlesmesi",
+  "type": "object",
+  "required": ["mevzuat_onerileri"],
+  "properties": {
+    "mevzuat_onerileri": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kanun", "madde", "kaynak_id", "guven"],
+        "properties": {
+          "kanun": { "type": "string" },
+          "madde": { "type": "string" },
+          "kaynak_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Atif zorunlu - bos olamaz (guardrail bu alani kontrol eder)"
+          },
+          "guven": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    }
+  }
+}

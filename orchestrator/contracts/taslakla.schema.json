@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "taslakla - cikti sozlesmesi",
+  "type": "object",
+  "required": ["taslak"],
+  "properties": {
+    "taslak": {
+      "type": "object",
+      "required": ["tip", "metin", "filigran"],
+      "properties": {
+        "tip": {
+          "type": "string",
+          "enum": ["ust_yazi", "cevap", "bilgilendirme", "eksik_bilgi_talebi"]
+        },
+        "metin": { "type": "string", "minLength": 1 },
+        "filigran": {
+          "type": "string",
+          "const": "TASLAK - memur onayi gerekir",
+          "description": "Runtime'da zorunlu kilinir; degistirilemez sabit deger."
+        }
+      }
+    }
+  }
+}

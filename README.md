@@ -47,9 +47,28 @@ kamu-pusulasi/
 └── docs/               # mimari dokümantasyonu
 ```
 
+## Çalıştırma
+
+```bash
+pip install -r requirements.txt
+
+# Orkestrasyon döngüsünü tek örnek evrakla çalıştır, JSON çıktısını gör:
+python3 -m orchestrator.loop
+
+# Uçtan uca testleri çalıştır:
+python3 -m tests.test_e2e_mock
+```
+
 ## Durum
 
-Bu proje aktif geliştirme aşamasındadır (Sprint 1: mock uçtan uca iskelet).
+✅ **Sprint 1 tamamlandı:** Tek evrak türünde (dilekçe) mock'lu uçtan-uca
+iskelet çalışıyor; JSON, `oku_siniflandir → mevzuat_eslestir → taslakla →
+yonlendir` ajanları arasında sözleşmelere (bkz. `orchestrator/contracts/`)
+uygun şekilde akıyor. Repo, Apache-2.0 lisansı ve `BilisimVadisi2026`
+etiketi hazır.
+
+Sırada: Sprint 2 (orkestrasyon seviyesinde eksik-bilgi tespiti genişletme,
+guardrail v1).
 
 ## Guardrail ilkeleri
 

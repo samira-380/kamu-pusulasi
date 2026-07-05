@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "oku_siniflandir - cikti sozlesmesi",
+  "type": "object",
+  "required": ["siniflandirma", "cikarilan_alanlar", "ozet"],
+  "properties": {
+    "siniflandirma": {
+      "type": "object",
+      "required": ["tur", "guven"],
+      "properties": {
+        "tur": {
+          "type": "string",
+          "enum": ["dilekce", "ust_yazi", "tebligat", "basvuru"]
+        },
+        "guven": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "cikarilan_alanlar": {
+      "type": "object",
+      "required": ["gonderen", "tarih", "konu", "eksik_alanlar"],
+      "properties": {
+        "gonderen": { "type": ["string", "null"] },
+        "tarih": { "type": ["string", "null"] },
+        "konu": { "type": ["string", "null"] },
+        "eksik_alanlar": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Zorunlu ama evrakta bulunamayan alan adlari, orn. ['tc_kimlik_no', 'imza']"
+        }
+      }
+    },
+    "ozet": { "type": "string", "maxLength": 1000 }
+  }
+}
